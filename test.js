@@ -1,7 +1,17 @@
-let str1 = 'Hello, John Smith! Welcome to Phoenix, Arizona! ';
-let str2 = 'Hello, John Smith! Welcome to Phoenix, Arizona!';
+function isRepeat(string) {
+    const length = string.length;
 
-console.log(str1.length, str2.length); // Check length
-console.log([...str1]);                // Visualize each character in str1
-console.log([...str2]);                // Visualize each character in str2
-console.log(str1 === str2);            // Compare directly
+    for (let i = 1; i <= length / 2; i++) { // Step 1: Iterate through potential pattern lengths
+        if (length % i === 0) { // Step 2: Check if the string length is divisible by the current length `i`
+            const pattern = string.slice(0, i); // Extract the substring of length `i`
+            if (pattern.repeat(length / i) === string) { // Repeat and compare
+                return true; // If the repeated pattern matches the original string, return true
+            }
+        }
+    }
+    return false; // If no repeating pattern is found, return false
+}
+
+console.log(isRepeat("abab")); // true
+console.log(isRepeat("abcabc")); // true
+console.log(isRepeat("abcd")); // false
