@@ -25,3 +25,10 @@ function encryption(s,n){
 }
 
 console.log(encryption("012345", 2));
+
+function decryption(s,n){
+    if(!s || n <= 0){
+        return s ;
+    }
+        
+}
